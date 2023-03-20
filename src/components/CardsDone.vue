@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="card" v-for="objeto in filteredTasks" :key="objeto.id" style="width: 18rem">
+    <div class="card" v-for="objeto in doneTask" :key="objeto.id" style="width: 18rem">
       <div class="cardBody">
         <div>
           <p>ID: {{ objeto.id }}</p>
@@ -8,10 +8,7 @@
           <p>Descrição: {{ objeto.descricao }}</p>
           <p>Feito: {{ objeto.done }}</p>
           <p>Criado em: {{ objeto.createdAt }}</p>
-          <div class="divButton">
-            <button v-on:click="concluido(objeto.id)" class="buttonCard">Feito</button>
-            <button v-on:click="excluir(objeto.id)" class="buttonCard">Deletar</button>
-          </div>
+          <button v-on:click="excluir(objeto.id)" class="buttonCard">Deletar</button>
         </div>
       </div>
     </div>
@@ -22,22 +19,11 @@
 import axios from 'axios'
 
 export default {
-  name: 'Cards',
+  name: 'CardsDone',
   data() {
     return {
-      searchTerm: '',
-      responseData: null
-    }
-  },
-  computed: {
-    filteredTasks() {
-      if (this.responseData) {
-        return this.responseData.filter((task) => {
-          return task.name.toLowerCase().includes(this.$store.getters.searchTerm.toLowerCase())
-        })
-      } else {
-        return null
-      }
+      responseData: null,
+      doneTask: []
     }
   },
   methods: {
@@ -54,22 +40,22 @@ export default {
         })
     },
     excluir(id) {
-      axios
-        .delete(`https://6415ac7e351c4aed490c5c4f.mockapi.io/api/v1/tasks/${id}`)
-        .then((response) => {
-          console.log(response.data)
-        })
-        .catch((error) => {
-          console.log(error)
-        })
+      axios.delete(`https://6415ac7e351c4aed490c5c4f.mockapi.io/api/v1/tasks/${id}`)
+      .then((response) => {
+        console.log(response.data)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
     }
   },
   mounted() {
     axios
       .get('https://6415ac7e351c4aed490c5c4f.mockapi.io/api/v1/tasks')
       .then((response) => {
+        this.doneTask = response.data.filter((task) => task.done === true)
         this.responseData = response.data
-        console.log(this.responseData)
+        console.log(this.doneTask)
       })
       .catch((error) => {
         console.log(error)
@@ -99,10 +85,10 @@ export default {
   div {
     p {
       font-size: smaller;
-      font-family: 'Noto Sans';
+      font-family: "Noto Sans";
     }
     button {
-      font-family: 'Noto Sans';
+      font-family: "Noto Sans";
     }
   }
 }
@@ -110,9 +96,10 @@ export default {
   display: flex;
   gap: 100px;
 }
+
 .buttonCard {
   background-color: $purple;
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   border: none;
   width: 60px;
   border-radius: 2px;
