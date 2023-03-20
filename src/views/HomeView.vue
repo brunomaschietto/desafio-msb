@@ -1,6 +1,4 @@
-<script setup>
-import TheWelcome from '../components/TheWelcome.vue'
-</script>
+<script setup></script>
 
 <template>
   <div class="container">
@@ -24,6 +22,9 @@ import TheWelcome from '../components/TheWelcome.vue'
   img {
     width: 1000px;
     height: 100%;
+    @media (max-width: 1000px) {
+      width: 100%;
+    }
   }
 }
 .botaoEntrar {

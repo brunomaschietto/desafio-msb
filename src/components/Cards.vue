@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="card" v-for="objeto in filteredTasks" :key="objeto.id" style="width: 18rem">
+    <div class="card" v-for="objeto in filteredByStatusTasks" :key="objeto.id" style="width: 18rem">
       <div class="cardBody">
         <div>
           <p>ID: {{ objeto.id }}</p>
@@ -26,7 +26,9 @@ export default {
   data() {
     return {
       searchTerm: '',
-      responseData: null
+      responseData: null,
+      statusFilter: null,
+      selectedStatus: ''
     }
   },
   computed: {
@@ -38,7 +40,20 @@ export default {
       } else {
         return null
       }
+    },
+    filteredByStatusTasks() {
+    if (this.filteredTasks) {
+      if (this.statusFilter === true) {
+        return this.filteredTasks.filter(task => task.done === true)
+      } else if (this.statusFilter === false) {
+        return this.filteredTasks.filter(task => task.done === false)
+      } else {
+        return this.filteredTasks
+      }
+    } else {
+      return null
     }
+  }
   },
   methods: {
     concluido(id) {

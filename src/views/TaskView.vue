@@ -2,6 +2,13 @@
   <div class="tasks">
     <div class="inputsContainer">
       <input class="inputTarefa" v-model="searchTerm" placeholder="Filtrar tarefas" />
+      <div>
+        <select v-model="selectedStatus" @change="updateStatusFilter">
+          <option value="">Todos</option>
+          <option value="true">Feito</option>
+          <option value="false">Não feito</option>
+        </select>
+      </div>
       <form @submit.prevent="handleSubmit">
         <div class="divInputs">
           <div class="divInterna">
@@ -48,7 +55,8 @@ export default {
       id: '',
       name: '',
       descricao: '',
-      searchTerm: ''
+      searchTerm: '',
+      selectedStatus: null
     }
   },
   watch: {
@@ -62,6 +70,18 @@ export default {
   methods: {
     updatedSearchTerm() {
       this.$store.commit('updateSearchTerm', this.searchTerm)
+    },
+    updateStatusFilter() {
+      switch (this.selectedStatus) {
+        case 'true':
+          this.statusFilter = true
+          break
+        case 'false':
+          this.statusFilter = false
+          break
+        default:
+          this.statusFilter = null
+      }
     },
     handleSubmit() {
       axios
@@ -119,13 +139,13 @@ export default {
   border-radius: 0.5rem;
   border: none;
   font-size: 16px;
-  font-family:"Noto Sans";
+  font-family: 'Noto Sans';
 }
 .botaoAdicionar {
   padding: 0.75rem;
   border-radius: 0.5rem;
   border: none;
-  font-family:"Noto Sans";
+  font-family: 'Noto Sans';
   font-size: 16px;
   cursor: pointer;
 }
