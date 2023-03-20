@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
+  <div class="tasks">
     <div class="inputsContainer">
       <input class="inputTarefa" v-model="searchTerm" placeholder="Filtrar tarefas" />
       <form @submit.prevent="handleSubmit">
@@ -16,7 +16,7 @@
               placeholder="Descrição"
               v-model="descricao"
             />
-            <button type="submit" class="botaoAdicionar">Adicionar</button>
+            <button type="submit" class="botaoAdicionar">Adicionar Tarefa</button>
           </div>
         </div>
       </form>
@@ -42,7 +42,7 @@ import Cards from '../components/Cards.vue'
 import CardsDone from '../components/CardsDone.vue'
 
 export default {
-  name: 'AboutView',
+  name: 'TaskView',
   data() {
     return {
       id: '',
@@ -86,7 +86,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.about {
+.tasks {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -119,13 +119,13 @@ export default {
   border-radius: 0.5rem;
   border: none;
   font-size: 16px;
-  font-family: 'Times New Roman', Times, serif;
+  font-family:"Noto Sans";
 }
 .botaoAdicionar {
   padding: 0.75rem;
   border-radius: 0.5rem;
   border: none;
-  font-family: 'Times New Roman', Times, serif;
+  font-family:"Noto Sans";
   font-size: 16px;
   cursor: pointer;
 }

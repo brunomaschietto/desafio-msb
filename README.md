@@ -1,35 +1,56 @@
-# desafio-msb
+# **Desafio MSB**
 
-This template should help get you started developing with Vue 3 in Vite.
+O Desafio MSB consiste em criar uma lista de tarefas criada pelo usuário, possuindo duas páginas: Home e a Tasks. O projeto tem como fonte de dados a <a href="https://6415ac7e351c4aed490c5c4f.mockapi.io/api/v1/tasks">API</a> fornecida pela empresa.
 
-## Recommended IDE Setup
+## 🔍**Índice**
+* [Funcionalidades do projeto](#-funcionalidades-do-projeto)
+* [Layout](#-layout)
+* [Demonstração](#-demonstração)
+* [Como rodar esse projeto?](#-como-rodar-esse-projeto?)
+* [Tecnologias utilizadas](#-tecnologias-utilizadas)
+* [Pessoas autoras](#-pessoas-autoras)
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
 
-## Customize configuration
+## 💻 **Funcionalidades do Projeto**
+- [x] Adicionar tarefas à lista.
+- [x] Marcar tarefas como concluídas.
+- [x] Excluir tarefas.
+- [x] Filtrar tarefas por status (todas, ativas e concluídas).
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
 
-## Project Setup
+## 🖼 **Layout**
+![tela-inicial](./src/assets/telaInicial.png)
+![tela-tarefas](./src/assets/layoutListaTarefas.png)
 
-```sh
-npm install
+## 🎯 **Demonstração**
+[Link demonstração](site)
+
+## 🕹 **Como rodar esse projeto?**
+
+```
+# Clone esse repositório
+$ git clone https://github.com/brunomaschietto/desafio-msb
+
+# Acesse a pasta do projeto no seu terminal
+$ cd desafio-msb
+
+# Instale as dependências
+$ npm install
+
+# Execute a aplicação
+$ npm run dev
 ```
 
-### Compile and Hot-Reload for Development
+## ⚙️ **Tecnologias Utilizadas**
 
-```sh
-npm run dev
-```
+1. [Vue](https://vuejs.org/)
+2. [Vue CLI](https://cli.vuejs.org/)
+3. [Vue Router](https://router.vuejs.org/)
+4. [Vuex](https://vuex.vuejs.org/)
+5. [SCSS](https://sass-lang.com/)
 
-### Compile and Minify for Production
+## 👩🏻‍💻 **Pessoas autoras**
 
-```sh
-npm run build
-```
+<p>Bruno Maschietto Simões Cruz</p>
 
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+[LinkedIn](https://www.linkedin.com/in/bruno-maschietto/)
