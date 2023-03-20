@@ -7,7 +7,7 @@ import TheWelcome from '../components/TheWelcome.vue'
     <header>
       <img src="../assets/lista_de_tarefas.png" />
     </header>
-    <RouterLink to="/about">
+    <RouterLink to="/tasks">
       <button class="botaoEntrar">Entrar</button>
     </RouterLink>
   </div>
