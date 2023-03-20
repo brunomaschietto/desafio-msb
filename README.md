@@ -23,7 +23,7 @@ O Desafio MSB consiste em criar uma lista de tarefas criada pelo usuário, possu
 ![tela-tarefas](./src/assets/layoutListaTarefas.png)
 
 ## 🎯 **Demonstração**
-[Link demonstração](site)
+[Link demonstração](https://desafio-msb.vercel.app/)
 
 ## 🕹 **Como rodar esse projeto?**
 
